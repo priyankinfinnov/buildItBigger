@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.nanodegree.builditbigger"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testApplicationId "com.nanodegree.buiditbigger.test"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file("../app/debug.keystore")
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+    }
+    productFlavors {
+        paid {
+            applicationId 'com.nanodegree.builditbigger.paid'
+            resValue 'string', 'banner_ad_unit_id', ''
+            resValue 'string', 'interstitial_ad_unit_id', ''
+        }
+        free {
+            applicationId 'com.nanodegree.builditbigger.free'
+            resValue 'string', 'banner_ad_unit_id', 'ca-app-pub-3940256099942544/6300978111'
+            resValue 'string', 'interstitial_ad_unit_id', 'ca-app-pub-2710190775746322/5857508498'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile project(path: ':backend', configuration: 'android-endpoints')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile project(':joketeller')
+}

@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Build it Bigger - Free Edition</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6436369521235092/5294135165</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-6436369521235092/8247601563</string>
+
+</resources>
