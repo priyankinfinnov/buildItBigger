@@ -88,6 +88,7 @@ public class JokeFragment extends Fragment implements LoadingInterface {
                 super.onAdClosed();
                 // Request for add
                 requestInterstitial();
+                jokeInterface.renderJoke(mJokeText);
             }
 
             @Override
